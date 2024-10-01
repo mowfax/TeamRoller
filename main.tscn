@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://bkmcm56e6rarx"]
+
+[ext_resource type="Texture2D" uid="uid://wqljv0u0i4l4" path="res://Images/Godot_Stammtisch_Karlsruhe_Logo.png" id="1_bxrx8"]
+[ext_resource type="PackedScene" uid="uid://bfn7y12dynmdl" path="res://Screens/options_screen.tscn" id="2_0ib5d"]
+[ext_resource type="PackedScene" uid="uid://uc0pwgobr8xh" path="res://Screens/dice_screen.tscn" id="3_wyugt"]
+[ext_resource type="PackedScene" uid="uid://cy1y3lwsgyssu" path="res://Screens/info_screen.tscn" id="4_l4vs8"]
+[ext_resource type="PackedScene" uid="uid://bov5ry21jqydh" path="res://Screens/credits_screen.tscn" id="5_h42ms"]
+
+[sub_resource type="FontVariation" id="FontVariation_1ao1t"]
+
+[sub_resource type="Theme" id="Theme_kflsf"]
+default_font = SubResource("FontVariation_1ao1t")
+default_font_size = 60
+
+[node name="App" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_kflsf")
+
+[node name="Blue" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.270588, 0.552941, 0.752941, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(1080, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1080, 0)
+layout_mode = 2
+texture = ExtResource("1_bxrx8")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ScrollArea" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScrollArea"]
+custom_minimum_size = Vector2(1080, 1980)
+layout_mode = 2
+
+[node name="Options" parent="VBoxContainer/ScrollArea/HBoxContainer" instance=ExtResource("2_0ib5d")]
+layout_mode = 2
+theme = SubResource("Theme_kflsf")
+
+[node name="Main" parent="VBoxContainer/ScrollArea/HBoxContainer" instance=ExtResource("3_wyugt")]
+layout_mode = 2
+theme = SubResource("Theme_kflsf")
+
+[node name="Info" parent="VBoxContainer/ScrollArea/HBoxContainer" instance=ExtResource("4_l4vs8")]
+layout_mode = 2
+theme = SubResource("Theme_kflsf")
+
+[node name="Credits" parent="VBoxContainer/ScrollArea/HBoxContainer" instance=ExtResource("5_h42ms")]
+layout_mode = 2
+theme = SubResource("Theme_kflsf")
