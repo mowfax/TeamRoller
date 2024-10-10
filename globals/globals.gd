@@ -29,14 +29,14 @@ var group_face_count: Dictionary = {
 
 # default mapping of die faces to restaurants
 var die_face_mapping: Dictionary = {
-		"1": "1",
-		"2": "1",
-		"3": "2",
-		"4": "2",
-		"5": "3",
-		"6": "3",
-		"7": "4",
+		"0": "1",
+		"1": "2",
+		"2": "3",
+		"3": "4",
+		"4": "5",
+		"5": "1",
+		"6": "2",
+		"7": "3",
 		"8": "4",
 		"9": "5",
-		"0": "5",
 	}

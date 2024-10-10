@@ -1,6 +1,7 @@
 extends RigidBody3D
 
 @onready var raycasts = $Raycasts.get_children()
+@onready var timer: Timer = $"../Timer"
 
 var start_pos
 var roll_strength = 50
@@ -33,12 +34,16 @@ func _roll() -> void:
 	var throw_vector = Vector3(randf_range(-1,1),0,randf_range(-1,1)).normalized()
 	angular_velocity = throw_vector * roll_strength / 2
 	apply_central_impulse(throw_vector * roll_strength)
-	
+	timer.start()
 
 
 func _on_sleeping_state_changed() -> void:
 	if sleeping:
 		for raycast in raycasts:
 			if raycast.is_colliding():
-				print("Colliding")
+				timer.stop()
 				roll_finished.emit(raycast.opposite_side)
+
+
+func _on_timer_timeout() -> void:
+	_roll()

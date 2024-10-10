@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cy1y3lwsgyssu"]
+[gd_scene load_steps=6 format=3 uid="uid://cy1y3lwsgyssu"]
 
 [ext_resource type="PackedScene" uid="uid://cpl1igo6ak4cc" path="res://Screens/screen.tscn" id="1_0rjmv"]
 [ext_resource type="Theme" uid="uid://cit2pjk2oxn2f" path="res://theme.tres" id="2_e6jgh"]
 [ext_resource type="Script" path="res://Screens/info_screen.gd" id="3_g8hkt"]
+[ext_resource type="Texture2D" uid="uid://cbyjesolspwee" path="res://graphics/btn_edit.png" id="4_4syst"]
+[ext_resource type="Texture2D" uid="uid://du6wj8wnjyhra" path="res://graphics/btn_save.png" id="5_jb8sf"]
 
 [node name="Info" instance=ExtResource("1_0rjmv")]
 custom_minimum_size = Vector2(1080, 1930)
@@ -39,36 +41,69 @@ layout_mode = 2
 text = "BrewDog
 Berlin Mitte"
 
-[node name="Group1Slots" type="Label" parent="MarginContainer/GridContainer" index="3"]
+[node name="Group1Slots" type="Label" parent="MarginContainer/GridContainer" index="3" groups=["Slots_ReadOnly"]]
 layout_mode = 2
 
-[node name="Group2Label" type="Label" parent="MarginContainer/GridContainer" index="4"]
+[node name="Group1SlotsEdit" type="TextEdit" parent="MarginContainer/GridContainer" index="4" groups=["Slots_ReadWrite"]]
+visible = false
+layout_mode = 2
+
+[node name="Group2Label" type="Label" parent="MarginContainer/GridContainer" index="5"]
 layout_mode = 2
 text = "Albert's
 Restaurant"
 
-[node name="Group2Slots" type="Label" parent="MarginContainer/GridContainer" index="5"]
+[node name="Group2Slots" type="Label" parent="MarginContainer/GridContainer" index="6" groups=["Slots_ReadOnly"]]
 layout_mode = 2
 
-[node name="Group3Label" type="Label" parent="MarginContainer/GridContainer" index="6"]
+[node name="Group2SlotsEdit" type="TextEdit" parent="MarginContainer/GridContainer" index="7" groups=["Slots_ReadWrite"]]
+visible = false
+layout_mode = 2
+
+[node name="Group3Label" type="Label" parent="MarginContainer/GridContainer" index="8"]
 layout_mode = 2
 text = "PETER PANE
 Burgergrill & Bar"
 
-[node name="Group3Slots" type="Label" parent="MarginContainer/GridContainer" index="7"]
+[node name="Group3Slots" type="Label" parent="MarginContainer/GridContainer" index="9" groups=["Slots_ReadOnly"]]
 layout_mode = 2
 
-[node name="Group4Label" type="Label" parent="MarginContainer/GridContainer" index="8"]
+[node name="Group3SlotsEdit" type="TextEdit" parent="MarginContainer/GridContainer" index="10" groups=["Slots_ReadWrite"]]
+visible = false
+layout_mode = 2
+
+[node name="Group4Label" type="Label" parent="MarginContainer/GridContainer" index="11"]
 layout_mode = 2
 text = "Papadam
 Indisches Restaurant"
 
-[node name="Group4Slots" type="Label" parent="MarginContainer/GridContainer" index="9"]
+[node name="Group4Slots" type="Label" parent="MarginContainer/GridContainer" index="12" groups=["Slots_ReadOnly"]]
 layout_mode = 2
 
-[node name="Group5Label" type="Label" parent="MarginContainer/GridContainer" index="10"]
+[node name="Group4SlotsEdit" type="TextEdit" parent="MarginContainer/GridContainer" index="13" groups=["Slots_ReadWrite"]]
+visible = false
 layout_mode = 2
-text = "The Flying Monkey"
 
-[node name="Group5Slots" type="Label" parent="MarginContainer/GridContainer" index="11"]
+[node name="Group5Label" type="Label" parent="MarginContainer/GridContainer" index="14"]
 layout_mode = 2
+text = "The 
+Flying Monkey"
+
+[node name="Group5Slots" type="Label" parent="MarginContainer/GridContainer" index="15" groups=["Slots_ReadOnly"]]
+layout_mode = 2
+
+[node name="Group5SlotsEdit" type="TextEdit" parent="MarginContainer/GridContainer" index="16" groups=["Slots_ReadWrite"]]
+visible = false
+layout_mode = 2
+
+[node name="TouchScreenButtonEdit" type="TouchScreenButton" parent="MarginContainer" index="1"]
+position = Vector2(351, 1700)
+texture_normal = ExtResource("4_4syst")
+
+[node name="TouchScreenButtonSave" type="TouchScreenButton" parent="MarginContainer" index="2"]
+visible = false
+position = Vector2(351, 1700)
+texture_normal = ExtResource("5_jb8sf")
+
+[connection signal="pressed" from="MarginContainer/TouchScreenButtonEdit" to="." method="_on_touch_screen_button_edit_pressed"]
+[connection signal="pressed" from="MarginContainer/TouchScreenButtonSave" to="." method="_on_touch_screen_button_save_pressed"]

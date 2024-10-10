@@ -144,7 +144,7 @@ transform = Transform3D(-0.061974, 0.939296, -0.337465, -0.296172, 0.305578, 0.9
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasLayer"]
-position = Vector2(308, 250)
+position = Vector2(298, 1500)
 scale = Vector2(1.28, 1.28)
 texture_normal = ExtResource("3_k10k6")
 action = "ui_accept"
@@ -165,12 +165,11 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -450.0
-offset_top = -83.0
+offset_top = -370.0
 offset_right = 450.0
-offset_bottom = 83.0
+offset_bottom = -204.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 121
-text = "Result"
 horizontal_alignment = 1
 autowrap_mode = 2
