@@ -1,0 +1,176 @@
+[gd_scene load_steps=23 format=3 uid="uid://c1u7nnlebhd"]
+
+[ext_resource type="Script" path="res://Screens/roller_table.gd" id="1_xe8ws"]
+[ext_resource type="PackedScene" uid="uid://4rek5d7h1hee" path="res://graphics/model/D10/dice_10b.tscn" id="2_by6ri"]
+[ext_resource type="Texture2D" uid="uid://bto2kid0alby7" path="res://graphics/btn_roll.png" id="3_k10k6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x4vlm"]
+bounce = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iw1os"]
+albedo_color = Color(0.163781, 0.272952, 0.0841839, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_x5mvx"]
+material = SubResource("StandardMaterial3D_iw1os")
+size = Vector3(18, 1, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_na2dm"]
+size = Vector3(18, 1, 10)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0uamo"]
+bounce = 0.5
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_55ij1"]
+bounce = 0.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_elnly"]
+size = Vector3(1, 10, 12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6ytlm"]
+size = Vector3(1, 10, 12)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4h2lv"]
+bounce = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glga1"]
+albedo_color = Color(0.533333, 0.533333, 0.533333, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gfbe6"]
+material = SubResource("StandardMaterial3D_glga1")
+size = Vector3(18, 10, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t75tw"]
+size = Vector3(18, 10, 1)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wvjak"]
+bounce = 0.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_buuay"]
+material = SubResource("StandardMaterial3D_glga1")
+size = Vector3(18, 10, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t8faj"]
+size = Vector3(18, 10, 1)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_goshf"]
+bounce = 0.5
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s3fgd"]
+
+[sub_resource type="Sky" id="Sky_6au5w"]
+sky_material = SubResource("ProceduralSkyMaterial_s3fgd")
+
+[sub_resource type="Environment" id="Environment_yccbq"]
+background_mode = 2
+sky = SubResource("Sky_6au5w")
+
+[node name="RollerTable" type="Node3D"]
+script = ExtResource("1_xe8ws")
+
+[node name="Table" type="StaticBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_x4vlm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Table"]
+mesh = SubResource("BoxMesh_x5mvx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table"]
+shape = SubResource("BoxShape3D_na2dm")
+
+[node name="Ceiling" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+physics_material_override = SubResource("PhysicsMaterial_0uamo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ceiling"]
+visible = false
+mesh = SubResource("BoxMesh_x5mvx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ceiling"]
+shape = SubResource("BoxShape3D_na2dm")
+
+[node name="WallTop" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 4.5, 0)
+physics_material_override = SubResource("PhysicsMaterial_55ij1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WallTop"]
+mesh = SubResource("BoxMesh_elnly")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallTop"]
+shape = SubResource("BoxShape3D_6ytlm")
+
+[node name="WallLeft" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, -5.5)
+physics_material_override = SubResource("PhysicsMaterial_4h2lv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WallLeft"]
+mesh = SubResource("BoxMesh_gfbe6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallLeft"]
+shape = SubResource("BoxShape3D_t75tw")
+
+[node name="WallRight" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 5.5)
+physics_material_override = SubResource("PhysicsMaterial_wvjak")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="WallRight"]
+mesh = SubResource("BoxMesh_buuay")
+skeleton = NodePath("../../WallLeft")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="WallRight"]
+shape = SubResource("BoxShape3D_t8faj")
+
+[node name="WallBottom" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 4.5, 0)
+physics_material_override = SubResource("PhysicsMaterial_goshf")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="WallBottom"]
+mesh = SubResource("BoxMesh_elnly")
+skeleton = NodePath("../../WallTop")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="WallBottom"]
+shape = SubResource("BoxShape3D_6ytlm")
+
+[node name="Dice_10" parent="." instance=ExtResource("2_by6ri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46737, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.35528e-08, 0.984448, -0.175676, 3.72001e-09, 0.175676, 0.984448, 1, 4.2222e-08, -1.13133e-08, -3.10095, 14.2114, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yccbq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.061974, 0.939296, -0.337465, -0.296172, 0.305578, 0.904933, 0.953122, 0.15603, 0.259255, 0, 10.8455, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2(308, 250)
+scale = Vector2(1.28, 1.28)
+texture_normal = ExtResource("3_k10k6")
+action = "ui_accept"
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.365213, 0.62593, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -83.0
+offset_right = 450.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 121
+text = "Result"
+horizontal_alignment = 1
+autowrap_mode = 2

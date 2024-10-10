@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://4rek5d7h1hee"]
+
+[ext_resource type="PackedScene" uid="uid://drkwb6afmddjt" path="res://graphics/model/D10/Dice_10.fbx" id="1_70ogd"]
+[ext_resource type="Script" path="res://graphics/model/D10/dice_d_10_lp.gd" id="2_uq3at"]
+[ext_resource type="PackedScene" uid="uid://d2l77eemv4kyt" path="res://graphics/model/D10/die_raycast.tscn" id="3_14a11"]
+
+[node name="Dice_10" instance=ExtResource("1_70ogd")]
+
+[node name="Dice_d10_LP" parent="." index="0"]
+unique_name_in_owner = true
+gravity_scale = 2.0
+freeze = true
+script = ExtResource("2_uq3at")
+
+[node name="Raycasts" type="Node3D" parent="Dice_d10_LP" index="2"]
+
+[node name="DieRaycast_8" parent="Dice_d10_LP/Raycasts" index="0" instance=ExtResource("3_14a11")]
+transform = Transform3D(0.951057, 0, 0.309017, 0, 1, 0, -0.309017, 0, 0.951057, -0.138615, -0.538486, -0.425964)
+target_position = Vector3(0, -0.08, -0.1)
+opposite_side = 8
+
+[node name="DieRaycast_0" parent="Dice_d10_LP/Raycasts" index="1" instance=ExtResource("3_14a11")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.450855, -0.538486, -0.0234499)
+target_position = Vector3(0, -0.08, -0.1)
+
+[node name="DieRaycast_2" parent="Dice_d10_LP/Raycasts" index="2" instance=ExtResource("3_14a11")]
+transform = Transform3D(-0.951056, 0, 0.309017, 0, 1, 0, -0.309017, 0, -0.951056, -0.157393, -0.538486, 0.423672)
+target_position = Vector3(0, -0.08, -0.1)
+opposite_side = 2
+
+[node name="DieRaycast_6" parent="Dice_d10_LP/Raycasts" index="3" instance=ExtResource("3_14a11")]
+transform = Transform3D(-0.587785, 0, -0.809017, 0, 1, 0, 0.809017, 0, -0.587785, 0.375784, -0.538486, 0.249444)
+target_position = Vector3(0, -0.08, -0.1)
+opposite_side = 6
+
+[node name="DieRaycast_4" parent="Dice_d10_LP/Raycasts" index="4" instance=ExtResource("3_14a11")]
+transform = Transform3D(0.587785, 0, -0.809017, 0, 1, 0, 0.809017, 0, 0.587785, 0.371156, -0.538486, -0.25034)
+target_position = Vector3(0, -0.08, -0.1)
+opposite_side = 4
+
+[node name="DieRaycast_3" parent="Dice_d10_LP/Raycasts" index="5" instance=ExtResource("3_14a11")]
+transform = Transform3D(0.587785, 0, 0.809017, 0, 1, 0, -0.809017, 0, 0.587785, -0.358693, 0.567057, -0.228421)
+target_position = Vector3(0, 0.08, -0.1)
+opposite_side = 3
+
+[node name="DieRaycast_5" parent="Dice_d10_LP/Raycasts" index="6" instance=ExtResource("3_14a11")]
+transform = Transform3D(-0.587785, 0, 0.809017, 0, 1, 0, -0.809017, 0, -0.587785, -0.337445, 0.567057, 0.261126)
+target_position = Vector3(0, 0.08, -0.1)
+opposite_side = 5
+
+[node name="DieRaycast_1" parent="Dice_d10_LP/Raycasts" index="7" instance=ExtResource("3_14a11")]
+transform = Transform3D(-0.951056, 0, -0.309017, 0, 1, 0, 0.309017, 0, -0.951056, 0.104265, 0.567057, 0.411344)
+target_position = Vector3(0, 0.08, -0.1)
+opposite_side = 1
+
+[node name="DieRaycast_9" parent="Dice_d10_LP/Raycasts" index="8" instance=ExtResource("3_14a11")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.424068, 0.567057, 0.0216457)
+target_position = Vector3(0, 0.08, -0.1)
+opposite_side = 9
+
+[node name="DieRaycast_7" parent="Dice_d10_LP/Raycasts" index="9" instance=ExtResource("3_14a11")]
+transform = Transform3D(0.951056, 0, -0.309017, 0, 1, 0, 0.309017, 0, 0.951056, 0.137024, 0.567057, -0.401432)
+target_position = Vector3(0, 0.08, -0.1)
+opposite_side = 7
+
+[connection signal="sleeping_state_changed" from="Dice_d10_LP" to="Dice_d10_LP" method="_on_sleeping_state_changed"]

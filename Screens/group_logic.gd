@@ -5,13 +5,13 @@ extends Node
 @onready var not_last_changed := $GruppengroesseInput
 
 
-func _on_gruppen_input_value_changed(value: int) -> void:
+func _on_gruppen_input_value_changed(_value: int) -> void:
 	last_changed = $GruppenInput
 	not_last_changed = $GruppengroesseInput
 	_update_personen()
 
 
-func _on_gruppengroesse_input_value_changed(value: int) -> void:
+func _on_gruppengroesse_input_value_changed(_value: int) -> void:
 	last_changed = $GruppengroesseInput
 	not_last_changed = $GruppenInput
 	_update_personen()

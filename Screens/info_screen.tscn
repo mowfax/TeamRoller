@@ -1,5 +1,74 @@
-[gd_scene load_steps=2 format=3 uid="uid://cy1y3lwsgyssu"]
+[gd_scene load_steps=4 format=3 uid="uid://cy1y3lwsgyssu"]
 
 [ext_resource type="PackedScene" uid="uid://cpl1igo6ak4cc" path="res://Screens/screen.tscn" id="1_0rjmv"]
+[ext_resource type="Theme" uid="uid://cit2pjk2oxn2f" path="res://theme.tres" id="2_e6jgh"]
+[ext_resource type="Script" path="res://Screens/info_screen.gd" id="3_g8hkt"]
 
 [node name="Info" instance=ExtResource("1_0rjmv")]
+custom_minimum_size = Vector2(1080, 1930)
+theme = ExtResource("2_e6jgh")
+script = ExtResource("3_g8hkt")
+
+[node name="MarginContainer" type="MarginContainer" parent="." index="1"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer" index="0"]
+layout_mode = 2
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 100
+columns = 2
+
+[node name="HeaderALabel" type="Label" parent="MarginContainer/GridContainer" index="0"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.705882, 0, 1)
+theme_override_constants/outline_size = 20
+text = "Restaurants"
+
+[node name="HeaderBLabel" type="Label" parent="MarginContainer/GridContainer" index="1"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.705882, 0, 1)
+theme_override_constants/outline_size = 20
+text = "Free Slots"
+
+[node name="Group1Label" type="Label" parent="MarginContainer/GridContainer" index="2"]
+layout_mode = 2
+text = "BrewDog
+Berlin Mitte"
+
+[node name="Group1Slots" type="Label" parent="MarginContainer/GridContainer" index="3"]
+layout_mode = 2
+
+[node name="Group2Label" type="Label" parent="MarginContainer/GridContainer" index="4"]
+layout_mode = 2
+text = "Albert's
+Restaurant"
+
+[node name="Group2Slots" type="Label" parent="MarginContainer/GridContainer" index="5"]
+layout_mode = 2
+
+[node name="Group3Label" type="Label" parent="MarginContainer/GridContainer" index="6"]
+layout_mode = 2
+text = "PETER PANE
+Burgergrill & Bar"
+
+[node name="Group3Slots" type="Label" parent="MarginContainer/GridContainer" index="7"]
+layout_mode = 2
+
+[node name="Group4Label" type="Label" parent="MarginContainer/GridContainer" index="8"]
+layout_mode = 2
+text = "Papadam
+Indisches Restaurant"
+
+[node name="Group4Slots" type="Label" parent="MarginContainer/GridContainer" index="9"]
+layout_mode = 2
+
+[node name="Group5Label" type="Label" parent="MarginContainer/GridContainer" index="10"]
+layout_mode = 2
+text = "The Flying Monkey"
+
+[node name="Group5Slots" type="Label" parent="MarginContainer/GridContainer" index="11"]
+layout_mode = 2

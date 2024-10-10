@@ -1,14 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpl1igo6ak4cc"]
+[gd_scene format=3 uid="uid://cpl1igo6ak4cc"]
 
-[ext_resource type="Theme" uid="uid://cit2pjk2oxn2f" path="res://theme.tres" id="1_bbn3s"]
-
-[node name="Screen" type="CenterContainer"]
-custom_minimum_size = Vector2(1080, 1980)
-offset_right = 1080.0
-offset_bottom = 1980.0
-theme = ExtResource("1_bbn3s")
+[node name="Container" type="MarginContainer"]
+custom_minimum_size = Vector2(1080, 1500)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(1080, 1980)
 layout_mode = 2
 color = Color(0.270588, 0.552941, 0.752941, 1)

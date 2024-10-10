@@ -8,19 +8,22 @@
 
 [node name="Options" instance=ExtResource("1_c6pdc")]
 
-[node name="GridContainer" type="GridContainer" parent="." index="1"]
+[node name="CenterContainer" type="CenterContainer" parent="." index="1"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer" index="0"]
 layout_mode = 2
 theme_override_constants/h_separation = 50
 columns = 2
 script = ExtResource("2_joo1i")
 
-[node name="Gruppen" type="TextureRect" parent="GridContainer" index="0"]
+[node name="Gruppen" type="TextureRect" parent="CenterContainer/GridContainer" index="0"]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 texture = ExtResource("3_47s86")
 expand_mode = 5
 
-[node name="GruppenInput" type="SpinBox" parent="GridContainer" index="1"]
+[node name="GruppenInput" type="SpinBox" parent="CenterContainer/GridContainer" index="1"]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 min_value = 1.0
@@ -28,22 +31,22 @@ max_value = 99.0
 value = 5.0
 alignment = 1
 
-[node name="Empty1" type="Control" parent="GridContainer" index="2"]
+[node name="Empty1" type="Control" parent="CenterContainer/GridContainer" index="2"]
 layout_mode = 2
 
-[node name="*" type="Label" parent="GridContainer" index="3"]
+[node name="*" type="Label" parent="CenterContainer/GridContainer" index="3"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "* "
 horizontal_alignment = 1
 
-[node name="Gruppengroesse" type="TextureRect" parent="GridContainer" index="4"]
+[node name="Gruppengroesse" type="TextureRect" parent="CenterContainer/GridContainer" index="4"]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 texture = ExtResource("4_wh4ls")
 expand_mode = 4
 
-[node name="GruppengroesseInput" type="SpinBox" parent="GridContainer" index="5"]
+[node name="GruppengroesseInput" type="SpinBox" parent="CenterContainer/GridContainer" index="5"]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 min_value = 1.0
@@ -51,21 +54,21 @@ max_value = 99.0
 value = 12.0
 alignment = 1
 
-[node name="Empty2" type="Control" parent="GridContainer" index="6"]
+[node name="Empty2" type="Control" parent="CenterContainer/GridContainer" index="6"]
 layout_mode = 2
 
-[node name="=" type="Label" parent="GridContainer" index="7"]
+[node name="=" type="Label" parent="CenterContainer/GridContainer" index="7"]
 layout_mode = 2
 text = "= "
 horizontal_alignment = 1
 
-[node name="Personen" type="TextureRect" parent="GridContainer" index="8"]
+[node name="Personen" type="TextureRect" parent="CenterContainer/GridContainer" index="8"]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 texture = ExtResource("5_amb7p")
 expand_mode = 5
 
-[node name="PersonenInput" type="SpinBox" parent="GridContainer" index="9"]
+[node name="PersonenInput" type="SpinBox" parent="CenterContainer/GridContainer" index="9"]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 min_value = 1.0
@@ -73,6 +76,6 @@ max_value = 10000.0
 value = 60.0
 alignment = 1
 
-[connection signal="value_changed" from="GridContainer/GruppenInput" to="GridContainer" method="_on_gruppen_input_value_changed"]
-[connection signal="value_changed" from="GridContainer/GruppengroesseInput" to="GridContainer" method="_on_gruppengroesse_input_value_changed"]
-[connection signal="value_changed" from="GridContainer/PersonenInput" to="GridContainer" method="_on_personen_input_value_changed"]
+[connection signal="value_changed" from="CenterContainer/GridContainer/GruppenInput" to="CenterContainer/GridContainer" method="_on_gruppen_input_value_changed"]
+[connection signal="value_changed" from="CenterContainer/GridContainer/GruppengroesseInput" to="CenterContainer/GridContainer" method="_on_gruppengroesse_input_value_changed"]
+[connection signal="value_changed" from="CenterContainer/GridContainer/PersonenInput" to="CenterContainer/GridContainer" method="_on_personen_input_value_changed"]
